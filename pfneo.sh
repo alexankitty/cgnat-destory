@@ -4,7 +4,7 @@ if [ $# -eq 0 ]
         echo "Format is portforward.sh port protocol"
         exit
 fi
-EXTIP=147.182.231.147
+EXTIP=<REPLACE WITH VPS IP>
 NHOP=192.168.1.1
 IF=eth0
 ufw allow $1/$2
