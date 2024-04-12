@@ -9,4 +9,5 @@ IF="eth0"
 ufw route delete allow in on $TUN_IF out on $IF
 ip route del $ROUTER_NET
 iptables -t nat -D POSTROUTING -s $TUN_IP -j MASQUERADE
+iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 cat $PORT_FILE | while read line; do $PORT_SCRIPT $line; done

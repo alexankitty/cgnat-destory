@@ -9,4 +9,5 @@ IF="eth0"
 ufw route allow in on $TUN_IF out on $IF
 ip route add $ROUTER_NET via $TUN_IP
 iptables -t nat -A POSTROUTING -s $TUN_IP -j MASQUERADE
+iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
 cat $PORT_FILE | while read line; do $PORT_SCRIPT $line; done
